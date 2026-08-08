@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>카드뉴스 스튜디오 | 인스타그램 카드뉴스 채널 5종</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1>📱 카드뉴스 스튜디오</h1>
+      <p>정보 · 사회 · 연예 · 경제 · 이슈 — 채널 5종 카드뉴스 제작 &amp; 프로필 관리</p>
+    </header>
+
+    <nav class="channel-tabs" id="channelTabs"></nav>
+
+    <main class="layout">
+      <!-- 좌측: 채널 프로필 -->
+      <section class="panel profile-panel">
+        <h2>채널 프로필</h2>
+        <div class="avatar-upload">
+          <img id="avatarPreview" src="" alt="프로필 사진" />
+          <label class="btn-file">
+            사진 변경
+            <input type="file" id="avatarInput" accept="image/*" hidden />
+          </label>
+        </div>
+        <label>채널명
+          <input type="text" id="channelName" maxlength="30" />
+        </label>
+        <label>아이디(핸들)
+          <input type="text" id="channelHandle" maxlength="30" />
+        </label>
+        <label>소개글
+          <textarea id="channelBio" rows="3" maxlength="120"></textarea>
+        </label>
+        <button class="btn-primary" id="saveProfileBtn">프로필 저장</button>
+        <p class="hint">채널 1번(정보카드뉴스)부터 순서대로 사진/소개를 바꿀 수 있어요. 저장은 브라우저에 자동 보관됩니다.</p>
+      </section>
+
+      <!-- 중앙: 슬라이드 에디터 -->
+      <section class="panel editor-panel">
+        <h2>카드뉴스 슬라이드</h2>
+
+        <div class="viral-picker">
+          <label>바이럴 문구 세트 불러오기
+            <select id="viralSetSelect"></select>
+          </label>
+          <button class="btn-secondary" id="applyViralSetBtn">이 문구로 전체 슬라이드 채우기</button>
+        </div>
+
+        <div class="slide-thumbs" id="slideThumbs"></div>
+        <div class="slide-actions">
+          <button class="btn-secondary" id="addSlideBtn">＋ 슬라이드 추가</button>
+          <button class="btn-secondary" id="dupSlideBtn">⧉ 복제</button>
+          <button class="btn-danger" id="delSlideBtn">🗑 삭제</button>
+        </div>
+
+        <div class="fields">
+          <label>배경
+            <div class="bg-row">
+              <button class="btn-secondary" id="bgGradientBtn">채널 색상 그라데이션</button>
+              <label class="btn-file">
+                이미지 업로드
+                <input type="file" id="bgImageInput" accept="image/*" hidden />
+              </label>
+            </div>
+          </label>
+          <label>헤드라인(제목)
+            <input type="text" id="slideTitle" maxlength="60" placeholder="예: 이거 모르면 손해봅니다" />
+          </label>
+          <label>본문
+            <textarea id="slideBody" rows="3" maxlength="120" placeholder="예: 매년 신청 안 해서 날아가는 지원금, 무려 수십만 원"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <!-- 우측: 미리보기 -->
+      <section class="panel preview-panel">
+        <h2>미리보기 (1080×1350)</h2>
+        <canvas id="cardCanvas" width="1080" height="1350"></canvas>
+        <div class="download-actions">
+          <button class="btn-primary" id="downloadOneBtn">이 슬라이드 PNG 저장</button>
+          <button class="btn-primary" id="downloadAllBtn">전체 슬라이드 PNG 저장</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/content.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
